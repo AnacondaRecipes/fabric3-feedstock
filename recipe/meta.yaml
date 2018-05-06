@@ -11,10 +11,11 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   {{ hash_type }}: {{ hash_val }}
+
 build:
   entry_points:
     - fab = fabric.main:main
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -24,7 +25,7 @@ requirements:
 
   run:
     - python
-    - paramiko >=1.17.2,<2.0
+    - paramiko >=2.0,<3.0
     - six >=1.10.0
 
 test:
